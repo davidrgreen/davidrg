@@ -23,6 +23,7 @@
 <footer id="colophon" class="site-footer clearfix" role="contentinfo">
 	<div class="wrap">
 	&copy; <?php echo date( 'Y' ); ?> David Green. All Rights Reserved.
+	<div class="small-diamond"></div>
 	</div>
 </footer>
 <div class="mobile-menu">
