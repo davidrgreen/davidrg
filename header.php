@@ -10,7 +10,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <link rel="shortcut icon" href="/favicon.ico">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta name="msapplication-TileColor" content="#ffffff">
 <meta name="msapplication-TileImage" content="/mstile-144x144.png">
 
@@ -22,7 +21,11 @@
 <header id="masthead" class="site-header clearfix" role="banner">
 	<div class="wrap">
 		<div class="site-logo">
-			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">David R Green</a></h1>
+			<?php if ( is_front_page() ) { ?>
+			<h1 class="site-title">David R Green</h1>
+			<?php } else { ?>
+			<h2 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">David R Green<span class="subtitle">Front-End Developer w/ PHP Savvy</span></h2></a>
+			<?php } ?>
 		</div>
 		<?php if ( ! is_front_page() ) { ?>
 		<button class="mobile-menu-toggle-button mobile-menu-toggle" role="button" aria-pressed="false">Menu</button>

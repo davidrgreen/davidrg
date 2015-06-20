@@ -1,10 +1,6 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-
-		<div class="entry-meta">
-			<?php davidrg_posted_on(); ?>
-		</div>
 	</header>
 
 	<div class="entry-content clearfix">
@@ -17,8 +13,4 @@
 			) );
 		?>
 	</div>
-
-	<footer class="entry-footer">
-		<?php davidrg_entry_footer(); ?>
-	</footer>
 </article>

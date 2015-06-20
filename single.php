@@ -12,7 +12,7 @@ get_header(); ?>
 
 			<?php get_template_part( 'template-parts/content', 'single' ); ?>
 
-			<?php davidrg_post_navigation(); ?>
+			<?php /* davidrg_post_navigation(); */ ?>
 
 			<?php
 				if ( comments_open() || get_comments_number() ) :

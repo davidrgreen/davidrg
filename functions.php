@@ -133,7 +133,7 @@ function davidrg_header_scripts() {
 	$min_or_not = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 
 	wp_enqueue_style( 'davidrg-style', get_template_directory_uri() . '/assets/css/style' . $min_or_not . '.css');
-	wp_enqueue_style( 'davidrg-google-fonts', '//fonts.googleapis.com/css?family=Lato:300,400,700,400italic' );
+	wp_enqueue_style( 'davidrg-google-fonts', '//fonts.googleapis.com/css?family=Lato:300,300italic,400,700,400italic' );
 	/* comment-reply.js is called in comments.php */
 }
 
@@ -159,7 +159,7 @@ add_action( 'after_setup_theme', 'davidrg_add_editor_styles' );
 function davidrg_add_editor_styles() {
 	add_editor_style( 'assets/css/editor-style.css' );
 
-	$font_url = str_replace( ',', '%2C', '//fonts.googleapis.com/css?family=Lato:300,400,700,400italic' );
+	$font_url = str_replace( ',', '%2C', '//fonts.googleapis.com/css?family=Lato:300,300italic,,400,700,400italic' );
 	add_editor_style( $font_url );
 }
 
@@ -179,6 +179,15 @@ function davidrg_body_classes( $classes ) {
 }
 
 
+/**
+ * Customize the more link
+ */
+function davidrg_excerpt_more( $more ) {
+	return '... <a class="read-more" href="' . get_permalink( get_the_ID() ) . '">Continue Reading</a>';
+}
+add_filter( 'excerpt_more', 'davidrg_excerpt_more' );
+
+
 
 
 /**
@@ -194,7 +203,11 @@ require get_template_directory() . '/inc/template-tags.php';
 require get_template_directory() . '/inc/style-admin.php';
 
 
-// require get_template_directory() . '/inc/custom-post-types.php';
+require get_template_directory() . '/inc/custom-post-types.php';
 // require get_template_directory() . '/inc/custom-taxonomies.php';
-// require get_template_directory() . '/inc/custom-meta-fields.php';
+
+if ( file_exists(  __DIR__ . '/cmb2/init.php' ) ) {
+	require get_template_directory() . '/inc/custom-meta-fields.php';
+}
+
 // require get_template_directory() . '/inc/options-page.php';

@@ -111,12 +111,6 @@ textarea:focus,
 
 
 .site-content {
-	float: left;
-	width: 66.6666667%; /* 800px / 1200px */
-}
-
-.home .site-content {
-	float: none;
 	width: 100%;
 }
 
@@ -156,10 +150,14 @@ blockquote,
 q {
 	position: relative;
 	quotes: "" "";
-	padding-left: 35px;
+	padding: 15px 35px;
 }
 
-blockquote:before {
+.home blockquote {
+	padding: 0 0 0 35px;
+}
+
+.home blockquote:before {
 	content: 'icon';
 	text-indent: -9999px;
 	position: absolute;
@@ -173,7 +171,7 @@ blockquote:before {
 	-moz-transform: scale(.9999);
 }
 
-blockquote:nth-child(odd):before {
+.home blockquote:nth-child(odd):before {
 	border-color: transparent transparent transparent #010101;
 }
 
@@ -268,7 +266,7 @@ ul.triangle li:before {
 	content: 'icon';
 	text-indent: -9999px;
 	position: absolute;
-	top: 0;
+	top: 2px;
 	left: 0;
 	width: 0;
 	height: 0;
@@ -459,7 +457,8 @@ a:hover img {
 
 .entry-title a,
 .sidebar .widget-title a {
-	color: #333;
+	color: #010101;
+	border: 0;
 }
 
 .entry-title a:hover {
@@ -621,7 +620,13 @@ textarea:focus:-ms-input-placeholder { color:transparent; }
 
 .site-header {
 	position: relative;
+	padding-top: 3px;
+	padding-bottom: 204px;
+}
+
+.home .site-header {
 	padding-top: 224px;
+	padding-bottom: 0;
 }
 
 .site-header:before {
@@ -657,39 +662,48 @@ textarea:focus:-ms-input-placeholder { color:transparent; }
 	z-index: 10;
 }
 
-
 .site-logo {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 20;
+}
+
+.home .site-logo {
+	position: relative;
 	display: inline-block;
 	text-align: center;
 	width: 100%;
 }
-
-/*.site-logo:before {
-	content: '';
-	position: absolute;
-	top: 0;
-	left: 0;
-	z-index: 6;
-	border-top: 100px solid crimson;
-	border-left: 65px solid transparent;
-	border-right: 65px solid transparent;
-	height: 0;
-	width: 190px;
-}*/
 
 .site-header h1 {
 	position: relative;
 	font-size: 70px;
 	font-weight: 400;
 	line-height: 1.05;
+	color: #010101;
 }
 
-.site-header h1 a {
-	color: #000;
+.site-header h2 {
+	border: 0;
+	color: #eee;
+	margin-top: 40px;
+}
+
+.site-header .subtitle {
+	font-size: 22px;
+	font-weight: 300;
+	font-style: italic;
+	display: block;
+	text-align: left;
+}
+
+.site-header h2 a {
+	color: #fff;
 	border: 0;
 }
 
-.site-header h1 a:hover {
+.site-header h2 a:hover {
 	color: #3c948b;
 }
 
@@ -697,44 +711,49 @@ textarea:focus:-ms-input-placeholder { color:transparent; }
 # Menus
 --------------------------------------------------------------*/
 /* style the menu bar */
-.main-navigation {
+.main-navigation, .footer-navigation {
 	clear: both;
 	display: block;
 	width: 100%;
 	text-align: right;
-	position: relative;
 	z-index: 7;
 	position: absolute;
 	top: 30px;
 }
 
-.main-navigation ul {
+.footer-navigation {
+	position: relative;
+	text-align: center;
+	margin: 0 auto 60px;
+}
+
+.main-navigation ul, .footer-navigation ul {
 	display: block;
 	list-style: none;
 	margin: 0;
 	padding-left: 0;
 }
 
-.main-navigation li {
+.main-navigation li, .footer-navigation li {
 	position: relative;
 	display: inline-block;
 }
 
 /* Space out only the top-level links */
-.main-navigation .menu > li {
+.main-navigation .menu > li, .footer-navigation .menu > li {
 	margin: 0 7px;
 }
 
-.main-navigation li:first-child {
+.main-navigation li:first-child, .footer-navigation li:first-child {
 	margin-left: 0;
 }
 
-.main-navigation li:last-child {
+.main-navigation li:last-child, .footer-navigation li:last-child {
 	margin-right: 0;
 }
 
 /* Base font style for the primary menu */
-.main-navigation a {
+.main-navigation a, .footer-navigation a {
 	display: block;
 	padding: 10px 6px 3px;
 	text-decoration: none;
@@ -746,8 +765,19 @@ textarea:focus:-ms-input-placeholder { color:transparent; }
 	border: 0;
 }
 
+.footer-navigation a {
+	color: royalblue;
+	border-bottom: solid 1px;
+	padding-bottom: 0;
+	line-height: 1.4;
+}
+
+.footer-navigation a:hover {
+	color: red;
+}
+
 /* top level hover. Parent link maintain's hover */
-.main-navigation li:hover > a {
+.main-navigation li:hover > a, .footer-navigation li:hover > a {
 	border-bottom: solid 1px;
 }
 
@@ -1125,6 +1155,21 @@ textarea:focus:-ms-input-placeholder { color:transparent; }
 	margin: 1.5em 0 0;
 }
 
+.entry-header h1 {
+	text-align: center;
+}
+
+.entry-subtitle {
+	font-size: 30px;
+	margin: 0 0 50px;
+}
+
+.entry-subtitle .entry-tags {
+	display: block;
+	font-size: 24px;
+	font-weight: 300;
+}
+
 .page-links {
 	clear: both;
 	margin: 0 0 1.5em;
@@ -1235,9 +1280,18 @@ video {
 	max-width: 100%;
 }
 
+/* Add some space above images following paragraphs */
+.entry-content p + p > img, .entry-content p + div > img {
+	padding-top: 10px;
+}
+
 img {
 	height: auto;
 	max-width: 100%;
+}
+
+.entry-content img {
+	margin-bottom: 40px;
 }
 
 .img-circle {
@@ -1355,41 +1409,13 @@ img.centered,
 
 .site-footer {
 	position: relative;
-	padding: 50px 0;
+	padding: 10px 0 50px;
 	/*padding: 40px 0;*/
 	text-align: center;
 	color: #010101;
 	margin-top: 20px;
 	overflow: hidden;
 }
-
-/*.site-footer:before {
-	content: 'icon';
-	display: block;
-	position: absolute;
-	top: 250px;
-	left: 0;
-	background: #010101;
-	width: 100%;
-	height: 300px;
-	-webkit-transform: skew( 0deg, -13deg );
-	transform: skew( 0deg, -13deg );
-	z-index: 6;
-}
-
-.site-footer:after {
-	content: ' ';
-	display: block;
-	position: absolute;
-	top: 190px;
-	right: 0;
-	background: #3c948b;
-	width: 100%;
-	height: 280px;
-	-webkit-transform: skew( 0deg, 9deg );
-	transform: skew( 0deg, 9deg );
-	z-index: 8;
-}*/
 
 .footer-widgets {
 	clear: both;
@@ -1651,8 +1677,8 @@ button.sub-menu-toggle {
 	display: block;
 	width: 100%;
 	text-align: center;
-	margin: 0 auto 10px;
-	padding-top: 40px;
+	margin: 0 auto 15px;
+	padding-top: 35px;
 }
 
 .down-arrow:before {

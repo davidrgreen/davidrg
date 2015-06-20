@@ -116,7 +116,7 @@ get_header(); ?>
 			<h2>Testimonials</h2>
 		</div>
 		<div class="max760">
-			<blockquote>&ldquo;Another excellent job by David! I’m so excited that I’m finally able to try new things on my blog that I’ve always wanted to but didn’t know how.&rdquo;<br>&mdash; Ambrosio, Franchise Chatter</blockquote>
+			<blockquote>&ldquo;I’ve worked with David before and I will work with him again… and again… and again. He’s that good! David is diligent, talented, and a true pleasure to work with.&rdquo;<br>&mdash; Charles Zimmerman, Zimmerman Law Firm</blockquote><blockquote>&ldquo;Another excellent job by David! I’m so excited that I’m finally able to try new things on my blog that I’ve always wanted to but didn’t know how.&rdquo;<br>&mdash; Ambrosio, Franchise Chatter</blockquote>
 			<blockquote>&ldquo;David’s work, professionalism, and quick, clear and concise communication wildly exceeded all my expectations. Not only did he understand and address my project needs in-depth, but he offered suggestions to make it work even better.&rdquo;<br>&mdash; Jess Drenth, Bliss Marketing &amp; PR</blockquote>
 			<blockquote>&ldquo;Outstanding job! There’s nothing that would have made this job go more smoothly or the finished job better. I got exactly what I was looking for and was more than pleased!&rdquo;<br>&mdash; Steven Peters, Team Vahalla Racing</blockquote>
 		</div>
@@ -128,47 +128,47 @@ get_header(); ?>
 		</div>
 		<p>These are some of my recent projects. Clicking one will bring you to a page with more photos and details.</p>
 
-		<div class="home-portfolio">
-			<div class="one-third first">
-				<a href="">
-					<div class="portfolio-overlay">
-						<img src="http://www.shycyborg.com/wp-content/uploads/2014/09/codemash-home-imac27-280w.png">
-						<h3 class="portfolio-title">CodeMash</h3>
-					</div>
-				</a>
-			</div>
-			<div class="one-third">
-				<a href="">
-					<div class="portfolio-overlay">
-						<img src="http://www.shycyborg.com/wp-content/uploads/2014/09/cafe-eccell-home-imac27-280w.png">
-						<h3 class="portfolio-title">Cafe Eccell</h3>
-					</div>
-				</a>
-			</div>
-			<div class="one-third">
-				<a href="">
-					<div class="portfolio-overlay">
-						<img src="http://www.shycyborg.com/wp-content/uploads/2014/09/mount-evans-imac27-280w.png">
-						<h3 class="portfolio-title">Mount Evans</h3>
-					</div>
-				</a>
-			</div>
-			<div class="one-third first">
-				<img src="http://www.shycyborg.com/wp-content/uploads/2014/09/rob-carman-home-imac27-280w.png">
-			</div>
-			<div class="one-third">
-				<a href="">
-					<div class="portfolio-overlay">
-						<img src="http://www.shycyborg.com/wp-content/uploads/2014/09/franchise-chatter-imac27-280w.png">
-						<h3 class="portfolio-title">Franchise Chatter</h3>
-					</div>
-				</a>
-			</div>
-			<div class="one-third">
-				<img src="http://www.shycyborg.com/wp-content/uploads/2014/09/davischambers-home-imac27-280w.png">
-			</div>
-		</div>
+		<div class="home-portfolio clearfix" id="portfolio">
 
+		<?php
+
+		$args = array (
+			'post_type'              => 'davidrg-project',
+			'post_status'            => 'publish',
+			'posts_per_page'         => '-1',
+		);
+
+		$query = new WP_Query( $args );
+
+		// The Loop
+		if ( $query->have_posts() ) {
+			$looped = 0;
+			while ( $query->have_posts() ) {
+				$query->the_post();
+				$class = ( 0 == $looped || 0 == $looped % 3 ) ? 'one-third first' : 'one-third';
+				?>
+				<div class="<?php echo $class; ?>">
+					<a href="<?php echo the_permalink(); ?>">
+						<div class="portfolio-overlay">
+							<?php
+							if ( has_post_thumbnail() ) {
+								the_post_thumbnail( 'full' );
+							}
+							?>
+							<h3 class="portfolio-title"><?php the_title(); ?></h3>
+						</div>
+					</a>
+				</div>
+				<?php
+				$looped += 1;
+			}
+		} else {
+			// no posts found
+		}
+
+		wp_reset_postdata();
+		?>
+		</div>
 		</main>
 	</div>
 
