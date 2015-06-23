@@ -15,9 +15,9 @@ get_header(); ?>
 			<?php /* davidrg_post_navigation(); */ ?>
 
 			<?php
-				if ( comments_open() || get_comments_number() ) :
+				/*if ( comments_open() || get_comments_number() ) :
 					comments_template();
-				endif;
+				endif;*/
 			?>
 
 		<?php endwhile; ?>

@@ -31,12 +31,6 @@
 	<div class="small-diamond"></div>
 	</div>
 </footer>
-<div class="mobile-menu">
-	<button class="mobile-menu-toggle" role="button" aria-pressed="false">&#10006; Close Menu</button>
-	<div class="mobile-menu-primary">
-	<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'mobile-primary', 'fallback_cb' => '__return_false' ) ); ?>
-	</div>
-</div>
 
 <?php wp_footer(); ?>
 

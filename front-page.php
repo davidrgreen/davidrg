@@ -65,7 +65,7 @@ get_header(); ?>
 		<div class="down-arrow clearboth"></div>
 
 		<div class="text-center clearboth">
-			<h2>Notable Accomplishments <i class="sub-headline">Though not all about programming</i></h2>
+			<h2>Notable Accomplishments <span class="sub-headline">Though not all about programming</span></h2>
 		</div>
 		<ul class="triangle max760">
 			<li>
@@ -103,7 +103,7 @@ get_header(); ?>
 		<dd>
 			<i>June 2008 &mdash; January 2013</i>
 			<p>
-				I removed viruses for people who never wanted to admit to visiting naughty sites, and taught elderly and disabled clients how to use their computer. Until computers became cheap enough to replace instead of repair.
+				I removed viruses for people who never wanted to admit to visiting naughty sites and taught elderly and disabled clients how to use their computer. That is until computers became cheap enough to replace instead of repair.
 			</p>
 		</dd>
 		</dl>
@@ -168,6 +168,26 @@ get_header(); ?>
 
 		wp_reset_postdata();
 		?>
+		</div>
+
+		<div class="down-arrow"></div>
+
+		<div class="text-center clearboth">
+			<h2>Want to Work Together? <span class="sub-headline">Or Hire a New Employee?</span></h2>
+		</div>
+		<br>
+		<div class="max760 clearfix">
+			<div class="one-half first">
+				<img src="/wp-content/uploads/2015/06/david-r-green-standing.jpg" class="aligncenter">
+			</div>
+			<div class="one-half">
+				<p>
+					I've been building websites for 17 years, and for the last two years I've focused on working with designers and creative agencies to turn the ideas in their heads (and PhotoShop) into fast, functional, easy-to-use websites. Now I want to work on a team full-time.
+				</p>
+				<p>
+					If you're looking to add someone to your team that understands the front-end, back-end, and keeps the business goals of your clients in mind, then please <a href="/contact">contact me</a> so we can see if we're a good fit.
+				</p>
+			</div>
 		</div>
 		</main>
 	</div>

@@ -16,7 +16,7 @@ if ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) {
 /**
  * Style the login page
  */
-add_action( 'login_head', 'davidrg_custom_login_style' );
+// add_action( 'login_head', 'davidrg_custom_login_style' );
 function davidrg_custom_login_style() {
     ?>
     <style type="text/css">

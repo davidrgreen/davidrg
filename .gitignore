@@ -1,3 +1,9 @@
+# Ignore directories I use for optimizing images and temp images that will
+# go into the WordPress media library
+assets/img-temp
+assets/img-temp-raw
+assets/img-raw
+
 # Compiled source #
 ###################
 *.com

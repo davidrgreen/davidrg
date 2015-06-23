@@ -27,9 +27,6 @@
 			<h2 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">David R Green<span class="subtitle">Front-End Developer w/ PHP Savvy</span></h2></a>
 			<?php } ?>
 		</div>
-		<?php if ( ! is_front_page() ) { ?>
-		<button class="mobile-menu-toggle-button mobile-menu-toggle" role="button" aria-pressed="false">Menu</button>
-		<?php } ?>
 	</div>
 	<?php if ( ! is_front_page() ) { ?>
 	<nav id="site-navigation" class="main-navigation" role="navigation">

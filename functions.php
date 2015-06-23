@@ -146,8 +146,15 @@ add_action( 'wp_footer', 'davidrg_footer_scripts' );
 function davidrg_footer_scripts() {
 	$min_or_not = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 
-	wp_enqueue_script( 'jquery' );
-	wp_enqueue_script( 'davidrg-script', get_template_directory_uri() . '/assets/js/theme' . $min_or_not . '.js', 'jquery');
+	// wp_enqueue_script( 'jquery' );
+	// wp_enqueue_script( 'davidrg-script', get_template_directory_uri() . '/assets/js/theme' . $min_or_not . '.js', 'jquery');
+
+	if ( is_single( 'value-calculator' ) ) {
+		wp_enqueue_script( 'jquery' );
+		wp_enqueue_script( 'chartjs', get_template_directory_uri() . '/assets/js/as-needed/Chart.min.js', false, '1.0.1', true);
+		wp_enqueue_script( 'parsleyjs', get_template_directory_uri() . '/assets/js/as-needed/parsley.min.js', 'jquery', '2.0.5', true);
+		wp_enqueue_script( 'valuegraphjs', get_template_directory_uri() . '/assets/js/as-needed/value-grapher.min.js', 'chartjs', '0.1', true);
+	}
 }
 
 

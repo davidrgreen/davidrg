@@ -150,7 +150,13 @@ blockquote,
 q {
 	position: relative;
 	quotes: "" "";
-	padding: 15px 35px;
+	padding: 15px 35px 0;
+}
+
+.entry-content blockquote {
+	max-width: 760px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .home blockquote {
@@ -195,6 +201,13 @@ ul {
 
 ol {
 	list-style: decimal;
+}
+
+.entry-content ul,
+.entry-content ol {
+	max-width: 760px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 li > ul,
@@ -300,10 +313,22 @@ ul.triangle li:nth-child(odd):before {
 	color: #010101;
 }
 
-.skills-horizontal-list li + li:before {
+/*.skills-horizontal-list li + li:before {
 	content: "\00b7";
 	margin: 0 6px;
 	color: #3c948b;
+}*/
+
+.skills-horizontal-list li:after {
+	content: "\00b7";
+	margin: 0 0 0 6px;
+	color: #3c948b;
+}
+
+.skills-horizontal-list li:last-child:after {
+	display: none;
+	content: '';
+	margin: 0 0;
 }
 
 .horizontal-sub-list li {
@@ -364,6 +389,7 @@ h6 {
 .sub-headline {
 	font-size: 30px;
 	display: block;
+	font-style: italic;
 }
 
 p {
@@ -465,6 +491,10 @@ a:hover img {
 	color: red;
 }
 
+h1.entry-title {
+	font-size: 52px;
+}
+
 /*--------------------------------------------------------------
 # Tables
 --------------------------------------------------------------*/
@@ -518,7 +548,13 @@ label {
 /* Style the errors shown when a form error occurs */
 .ninja-forms-field-error p {
 	color: crimson;
+	font-weight: 700;
 	margin: 0;
+}
+
+.ninja-forms-success-msg p {
+	color: green;
+	font-weight: 700;
 }
 
 button,
@@ -527,17 +563,17 @@ input[type="reset"],
 input[type="submit"] {
 	border: 0;
 	border-radius: 3px;
-	background-color: #669966;
+	background-color: #993366;
 	color: #fff;
 	line-height: 1;
-	padding: 8px 25px 6px;
+	padding: 8px 25px 10px;
 }
 
 button:hover,
 input[type="button"]:hover,
 input[type="reset"]:hover,
 input[type="submit"]:hover {
-	background-color: #993366;
+	background-color: #669966;
 }
 
 select:focus,
@@ -665,7 +701,7 @@ textarea:focus:-ms-input-placeholder { color:transparent; }
 .site-logo {
 	position: absolute;
 	top: 0;
-	left: 0;
+	left: 5px;
 	z-index: 20;
 }
 
@@ -674,6 +710,7 @@ textarea:focus:-ms-input-placeholder { color:transparent; }
 	display: inline-block;
 	text-align: center;
 	width: 100%;
+	left: 0;
 }
 
 .site-header h1 {
@@ -688,6 +725,7 @@ textarea:focus:-ms-input-placeholder { color:transparent; }
 	border: 0;
 	color: #eee;
 	margin-top: 40px;
+	text-align: left;
 }
 
 .site-header .subtitle {
@@ -732,6 +770,7 @@ textarea:focus:-ms-input-placeholder { color:transparent; }
 	list-style: none;
 	margin: 0;
 	padding-left: 0;
+	padding-right: 10px;
 }
 
 .main-navigation li, .footer-navigation li {
@@ -838,7 +877,9 @@ textarea:focus:-ms-input-placeholder { color:transparent; }
 }
 
 
-
+.home .current-menu-item {
+	display: none;
+}
 
 
 .site-main .comment-navigation,
@@ -1340,7 +1381,10 @@ img.centered,
 }
 
 .wp-caption .wp-caption-text {
-	margin: 0.8075em 0;
+	margin:  10px 0;
+	color: #333;
+	font-size: 20px;
+	line-height: 24px;
 }
 
 
@@ -1410,10 +1454,8 @@ img.centered,
 .site-footer {
 	position: relative;
 	padding: 10px 0 50px;
-	/*padding: 40px 0;*/
 	text-align: center;
 	color: #010101;
-	margin-top: 20px;
 	overflow: hidden;
 }
 
@@ -1428,187 +1470,6 @@ img.centered,
 	margin-bottom: 35px;
 }
 
-
-
-
-
-/*--------------------------------------------------------------
-# Responsive Menu
---------------------------------------------------------------*/
-
-.site-header .mobile-menu-toggle-button {
-	float: right;
-	line-height: 0.2;
-	padding: 6px 16px 15px;
-	background: transparent;
-	color: #333;
-	border: solid 1px #333;
-	border-radius: 6px;
-	font-size: 21px;
-}
-
-.site-header .mobile-menu-toggle-button:hover,
-.site-header .mobile-menu-toggle-button:active {
-	color: #669966;
-	border: solid 1px #669966;
-	box-shadow: none;
-}
-
-.mobile-menu-toggle-button:before {
-	content: "\2261";
-	font-size: 45px;
-	position: relative;
-	top: 3px;
-	margin-right: 3px;
-}
-
-.mobile-menu .mobile-menu-toggle:hover {
-	color: #669966;
-	border: solid 1px #669966;
-}
-
-
-.mobile-menu-toggle {
-	cursor: pointer;
-	display: none;
-}
-
-.mobile-menu .mobile-menu-toggle {
-	background: transparent;
-	padding: 12px 16px 10px;
-	line-height: 1;
-	border: solid 1px #fff;
-	border-radius: 6px;
-	color: #fff;
-	display: inline-block;
-	margin: 0 auto 5px;
-}
-
-.mobile-menu .mobile-menu-toggle:hover {
-	color: #669966;
-	border: solid 1px #669966;
-}
-
-.mobile-menu {
-	display: none;
-	position: fixed;
-	top: 0;
-	right: -260px;
-	width: 250px;
-	height: 100%;
-	padding: 15px;
-	background: #333;
-	box-shadow: 0 0 5px 1px rgba( 0, 0, 0, 0.7 );
-	transition: all 0.19s ease-in-out;
-	overflow-y: auto;
-}
-
-.mobile-menu.mobile-menu-active {
-	right: 0;
-}
-
-.mobile-menu ul {
-	margin-left: 0;
-	padding-left: 0;
-	list-style: none;
-}
-
-.mobile-menu li {
-	position: relative;
-}
-
-.mobile-menu a {
-	display: block;
-	font-size: 20px;
-	padding: 4px 0;
-	margin: 10px 0;
-	color: #fff;
-}
-
-.mobile-menu a:hover, .mobile-menu a:active {
-	color: #669966;
-}
-
-.mobile-menu button:hover, .mobile-menu button:active {
-	background: transparent;
-	box-shadow: none;
-}
-
-.close-menu {
-	color: #fff;
-	font-size: 20px;
-}
-
-.sub-menu-toggle {
-	display: block;
-	font-size: 20px;
-	font-weight: 700;
-	margin: 0 auto;
-	overflow: hidden;
-	padding: 5px;
-	text-align: center;
-	visibility: visible;
-}
-
-button.sub-menu-toggle {
-	background-color: transparent;
-	color: #999;
-	box-shadow: none;
-}
-
-.sub-menu-toggle {
-	padding: 11px 20px;
-	position: absolute;
-	right: 0;
-	top: 0;
-}
-
-.sub-menu-toggle:before {
-	content: "+";
-	font-size: 28px;
-	position: relative;
-	top: -7px;
-}
-
-.sub-menu-toggle.activated:before {
-	content: "-";
-	font-size: 28px;
-}
-
-.sub-menu-toggle:hover, .sub-menu-toggle:active {
-	color: #669966;
-}
-
-.mobile-menu .sub-menu {
-	clear: both;
-	display: none;
-	opacity: 1;
-	position: static;
-	width: 100%;
-	transition: opacity .4s ease-in-out;
-}
-
-.mobile-menu .sub-menu a {
-	border-left: 0;
-	position: relative;
-	width: auto;
-}
-
-.mobile-menu .sub-menu .sub-menu {
-	margin: 0;
-}
-
-.mobile-menu .sub-menu a {
-	padding-left: 20px;
-}
-
-.mobile-menu .sub-menu .sub-menu a {
-	padding-left: 40px;
-}
-
-.mobile-menu .sub-menu .sub-menu .sub-menu a {
-	padding-left: 50px;
-}
 
 
 /**
@@ -1746,8 +1607,7 @@ button.sub-menu-toggle {
 }
 
 .home-portfolio a:hover .portfolio-overlay:before {
-	-moz-border-width: 148px 261px 0 0;
-	border-width: 147px 260px 0 0;
+	border-width: 148px 260px 0 0;
 }
 
 .home-portfolio .portfolio-overlay:after {
@@ -1768,7 +1628,7 @@ button.sub-menu-toggle {
 }
 
 .home-portfolio a:hover .portfolio-overlay:after {
-	border-width: 0 0 147px 260px;
+	border-width: 0 0 148px 261px;
 }
 
 .home-portfolio .portfolio-title {
@@ -1873,41 +1733,191 @@ button.sub-menu-toggle {
 
 
 /**
+ * Page Specific Styles
+ */
+
+ .single-post .content img.topimage {
+ 	margin-top: 0;
+ }
+
+ .single-post .entry-content, #respond {
+ 	padding-left: 35px;
+ 	padding-right: 35px;
+ }
+
+ /* Page Specific Styles */
+
+
+ .post-value-calculator input[type="text"], .post-value-calculator select  {
+ 	max-width: 80%;
+ 	margin-bottom: 5px;
+ }
+
+ .post-value-calculator label {
+ 	font-weight: 400;
+ 	color: #0F3F52;
+ }
+
+ .post-value-calculator label i {
+ 	font-weight: 300;
+ 	font-size: 20px;
+ }
+
+ .post-value-calculator #valueTable {
+ 	margin: 30px auto;
+ 	font-size: 18px;
+ }
+
+ .post-value-calculator #valueTable td {
+ 	text-align: center;
+ }
+
+ .post-value-calculator #valueTable .positiveValue {
+ 	background: #279066;
+ 	color: #eee;
+ }
+
+ .post-value-calculator .positiveValueText {
+ 	color: #279066;
+ 	font-weight: bold;
+ }
+
+ .post-value-calculator #valueTable .negativeValue {
+ 	background: #d14018;
+ 	color: #eee;
+ }
+
+ .post-value-calculator .negativeValueText {
+ 	color: #d14018;
+ 	font-weight: bold;
+ }
+
+ /* Parsley Form Validation styling */
+
+ input.parsley-error,
+ select.parsley-error,
+ textarea.parsley-error {
+   color: #B94A48;
+   background-color: #F2DEDE;
+   border: 1px solid #EED3D7;
+ }
+
+ .parsley-errors-list {
+ 	max-width: 70%;
+   margin: 8px 0 3px 0;
+   padding: 0;
+   color: #B94A48;
+   list-style-type: none;
+   font-size: 18px;
+   line-height: 21px;
+   opacity: 0;
+   -moz-opacity: 0;
+   -webkit-opacity: 0;
+
+   transition: all .3s ease-in;
+   -o-transition: all .3s ease-in;
+   -ms-transition: all .3s ease-in;
+   -moz-transition: all .3s ease-in;
+   -webkit-transition: all .3s ease-in;
+ }
+
+
+ .parsley-errors-list.filled {
+   opacity: 1;
+ }
+
+
+
+ @media only screen and (max-width: 600px) {
+
+ 	.post-value-calculator #valueTable td, .post-value-calculator #valueTable th {
+ 		display: block;
+ 		text-align: left;
+ 	}
+
+ 	.post-value-calculator #valueTable td {
+ 		padding-left: 18px;
+ 	}
+
+ 	.post-value-calculator #valueTable td:nth-of-type(1), .post-value-calculator #valueTable td:nth-of-type(2) {
+ 		display: none;
+ 	}
+
+ 	.post-value-calculator #valueTable td:nth-of-type(3) {
+ 		margin-bottom: 18px;
+ 	}
+
+
+ 	.post-value-calculator #valueTable td:before {
+ 	 	content: attr(data-th) ": ";
+ 		font-weight: bold;
+ 		padding-right: 15px;
+ 	}
+
+
+ 	/* Don't hide TH on mobile, but instead add a class to the top th row */
+ 	.post-value-calculator #valueTable .hideWhenNarrow {
+ 		display: none;
+ 	}
+ }
+
+
+/**
  * Media Queries
  */
 
-@media screen and (min-width: 768px) {
-	.mobile-show {
-		display: none;
+@media screen and (max-width: 910px) {
+	.home .one-third {
+		float: none;
+		width: 100%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.home .one-third.first {
+		margin-left: auto;
 	}
 }
 
+@media screen and (max-width: 900px) {
+	.site-header:before {
+		top: -425px;
+	}
+
+	.site-header h2 {
+		margin-top: 15px;
+		font-size: 35px;
+		text-align: left;
+	}
+}
+
+
 @media screen and (max-width: 768px) {
-	.site-content,
-	.sidebar-primary {
-		width: 100%;
-		float: none;
+
+	.site-header:before {
+		top: -380px;
+		webkit-transform: skew( 0deg, -12deg );
+		transform: skew( 0deg, -12deg );
+	}
+
+	.site-header:after {
+		top: -120px;
+		webkit-transform: skew( 0deg, 8deg );
+		transform: skew( 0deg, 8deg );
 	}
 
 	.main-navigation {
-		display: none;
+		top: 98px;
 	}
 
 	.mobile-hide {
 		display: none;
 	}
 
-	.mobile-menu {
-		display: block;
-	}
-
-	.mobile-menu-toggle {
-		display: inline-block;
-	}
-
 	/**
 	 * horizontal display of definition list now standard vertical display
 	 */
+
 	.dl-horizontal dt {
 		float: none;
 		width: auto;
@@ -1917,10 +1927,68 @@ button.sub-menu-toggle {
 	.dl-horizontal dd {
 		margin-left: 0;
 	}
-	/* ---------- column responsive code. collapse everything. */
+
+
+	.five-sixths,
+	.four-sixths,
+	.four-fifths,
+	.one-fifth,
+	.one-fourth,
+	.one-half,
+	.one-sixth,
+	.one-third,
+	.three-fourths,
+	.three-fifths,
+	.three-sixths,
+	.two-fourths,
+	.two-fifths,
+	.two-sixths,
+	.two-thirds {
+		float: none;
+		margin-left: auto;
+		margin-right: auto;
+		width: 100%;
+	}
 }
 
 @media screen and (max-width: 640px) {
+
+	h2 {
+		font-size: 36px;
+		padding: 5px 2px;
+	}
+
+	.sub-headline {
+		font-size: 26px;
+	}
+
+	.site-header {
+		padding-top: 12px;
+	}
+
+	.home .site-header {
+		padding-top: 254px;
+	}
+
+	.site-header:before {
+		top: -355px;
+		webkit-transform: skew( 0deg, -9deg );
+		transform: skew( 0deg, -9deg );
+	}
+
+	.site-header:after {
+		top: -53px;
+		webkit-transform: skew( 0deg, 2deg );
+		transform: skew( 0deg, 8deg );
+	}
+
+	.site-header .subtitle {
+		font-size: 21px;
+	}
+
+	.main-navigation {
+		top: 148px;
+	}
 
 	.gallery .gallery-item {
 		margin-left: auto;
@@ -1929,4 +1997,17 @@ button.sub-menu-toggle {
 		max-width: 100%;
 		display: block;
 	}
+
+	.diamond-headline:before,
+	.diamond-headline:after {
+		content: '';
+		display: none;
+	}
+
+	.diamond-headline {
+		line-height: 1.35;
+		font-size: 26px;
+		font-weight: 700;
+	}
+
 }
