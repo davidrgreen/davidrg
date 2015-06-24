@@ -2,6 +2,7 @@ My personal website. Built with my starter theme https://github.com/davidrgreen/
 
 ## To Do
 - Move the custom post type and custom meta box stuff to a functionality plugin, when I have time. For now it works and I know the poential consequences.
+- Take cmb2 out of this repository and simply make it a dependency. Composer maybe?
 
 ## Credits
 
